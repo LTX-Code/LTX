@@ -1,0 +1,1 @@
+from feature_extractor.feature_extraction_vit import ViTFeatureExtractor

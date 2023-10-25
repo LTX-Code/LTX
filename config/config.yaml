@@ -1,0 +1,50 @@
+general:
+  gpu_index: 0
+  seed: 42
+  wandb_project: ""
+  wandb_entity: ""
+vit:
+  train_images_path: train_data
+  val_images_path: val_data
+  run_base_model: True
+  activation_function: sigmoid # choose from here: [sigmoid, relu, softmax, None]
+  is_sampled_train_data_uniformly: True
+  is_sampled_val_data_uniformly: True
+  is_clamp_between_0_to_1: True
+  train_model_by_target_gt_class: True
+  optimize_by_pos: True
+  explainer_model_name: resnet
+#  explainer_model_name: google/vit-base-patch16-224
+#  explainer_model_name: WinKawaks/vit-small-patch16-224
+#  explainee_model_name: google/vit-base-patch16-224
+  explainee_model_name: resnet # densenet
+  is_competitive_method_transforms: False
+  img_size: 224
+  patch_size: 16
+  explainer_model_n_first_layers_to_freeze: 0
+  is_freezing_explaniee_model: True
+  freeze_classification_head: False
+  batch_size: 32
+  default_root_dir:
+  plot_path: ""
+  experiments_path: ""
+  enable_checkpointing: False
+  start_epoch_to_evaluate: 1
+  n_batches_to_visualize: 1
+  n_epochs: 500
+  n_epochs_to_optimize_stage_b: 25
+  lr: 2.0e-3
+  verbose: False
+  seg_cls:
+    train_n_label_sample: 6
+    val_n_label_sample: 1
+    loss:
+      normalize: False
+      mask_loss: bce #choose l1, bce, entropy_softmax
+      prediction_loss_mul: 1
+      mask_loss_mul: 50
+      is_ce_neg: False
+      use_logits_only: False
+  evaluation:
+    batch_size: 1
+    experiment_folder_name: seg_cls
