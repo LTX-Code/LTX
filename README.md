@@ -1,4 +1,4 @@
-# PyTorch Implementation of Learning to Explain: A Model-Agnostic Framework for Explaining Black Box Models
+# PyTorch Implementation of [Learning to Explain: A Model-Agnostic Framework for Explaining Black Box Models](https://arxiv.org/abs/2310.16584) [ICDM 2023]
 
 We present Learning to Explain (LTX), a model-agnostic framework designed for providing post-hoc explanations for vision models. The LTX framework introduces an ``explainer'' model that generates explanation maps, highlighting the crucial regions that justify the predictions made by the model being explained. To train the explainer, we employ a two-stage process consisting of initial pretraining followed by per-instance finetuning. During both stages of training, we utilize a unique configuration where we compare the explained model's prediction for a masked input with its original prediction for the unmasked input. This approach enables the use of a novel counterfactual objective, which aims to anticipate the model's output using masked versions of the input image. Importantly, the LTX framework is not restricted to a specific model architecture and can provide explanations for both Transformer-based and convolutional models. Through our evaluations, we demonstrate that LTX significantly outperforms the current state-of-the-art in explainability across various metrics.
 
@@ -59,3 +59,16 @@ CUDA_VISIBLE_DEVICES=0 PYTHONPATH=./:$PYTHONPATH nohup python main/segmentation_
 ```
 
 ** The dataset can be chosen by the parameter of `--dataset-type` from `imagenet`, `coco`, `voc`
+
+## Citation
+If you make use of our work, please cite our paper:
+```
+@inproceedings{barkan2023learning,
+  title={Learning to explain: A model-agnostic framework for explaining black box models},
+  author={Barkan, Oren and Asher, Yuval and Eshel, Amit and Elisha, Yehonatan and Koenigstein, Noam},
+  booktitle={2023 IEEE International Conference on Data Mining (ICDM)},
+  pages={944--949},
+  year={2023},
+  organization={IEEE}
+}
+```
